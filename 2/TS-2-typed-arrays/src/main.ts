@@ -86,8 +86,8 @@ console.group('Užduotys');
   {
     const numbers: number[] = [1, -8, -6, 7, 5, 1];
 
-    function addPositiveNumbers(arr) {
-      const positiveNumberReducer = (sum, num) => (num > 0 ? sum + num : sum);
+    function addPositiveNumbers(arr:number[]):number {
+      const positiveNumberReducer = (sum:number, num:number):number => (num > 0 ? sum + num : sum);
 
       return arr.reduce(positiveNumberReducer, 0);
     }
@@ -108,6 +108,27 @@ console.group('Užduotys');
        * ['Loughing', 'Out', 'Loud'] -> LOL
     */
   }
+  
+  const letter1: string[] = ['Lietuviškas', 'Nepriklausomas', 'Kanalas'] ;
+  const letter2: string[] = ['Lietuvos', 'Respublikos', 'Televizija'] ;
+  const letter3: string[] = ['Loughing', 'Out', 'Loud'] ;
+  const firstLetters = (strings: string[]): string => {
+    const firstLetter = (full: string, word:string): string => full + word.charAt(0);
+  
+    return strings.reduce(firstLetter,'');
+  };
+    console.log({
+      letter1,
+      firstLetters: firstLetters(letter1)
+    }    )
+    console.log({
+      letter2,
+      firstLetters: firstLetters(letter2)
+    }    )
+    console.log({
+      letter3,
+      firstLetters: firstLetters(letter3)
+    }    )
   console.groupEnd();
 
   console.group('3. Sukurkite ir tipais aprašykite funkciją, kuri saudaugintų visus number masyvo skaičius');
@@ -119,6 +140,28 @@ console.group('Užduotys');
        * [17, 10, 5] -> 850
     */
   }
-  console.groupEnd();
+  const number1: number[] = [1, 7, 8];
+  const number2: number[] = [98, 74, 5, 0];
+  const number3: number[] = [17, 10, 5];
+
+  function multiplication(arr:number[]):number {
+    const multiplyReducer = (total:number, num:number):number => (total * num );
+
+    return arr.reduce(multiplyReducer, 1);
+  }
+
+  console.log({
+    number1,
+    multiplication: multiplication(number1),
+  });
+  console.log({
+    number1,
+    multiplication: multiplication(number2),
+  });
+  console.log({
+    number1,
+    multiplication: multiplication(number3),
+  });
 }
+
 console.groupEnd();
