@@ -47,24 +47,72 @@ const req2 = {
 console.group('Literal types - užduotys');
 {
   // ↓↓↓↓ Tipus ir užduotims bendrus kintamuosius apraškite čia ↓↓↓↓
+  type Berlin = 'Berlin';
+  type Hamburg = 'Hamburg';
+  type Munich = 'Munich';
+  type Cologne = 'Cologne';
+  type Frankfurt = 'Frankfurt';
+
+  type germanCity = Berlin | Hamburg | Munich | Cologne | Frankfurt;
+
+
+  type Dobermanas = 'Dobermanas';
+  type Pitbulis = 'Pitbulis';
+  type Pinceris = 'Pinceris';
+  type Buldogas = 'Buldogas';
+  type Snauceris = 'Snauceris';
+
+  type Sunys = Dobermanas | Pitbulis | Pinceris | Buldogas|Snauceris;
+  
+
+  type Variklis = 'Variklis';
+  type Padanga = 'Padanga';
+  type Sarnyras = 'Sarnyras';
+  type Babina = 'Babina';
+  type Kardanas = 'Kardanas';
+
+  type masina = Variklis | Padanga | Babina | Kardanas|Sarnyras;
+
 
   // ↑↑↑↑ Tipus ir užduotims bendrus kintamuosius apraškite čia ↑↑↑↑
 
   console.group('1. Sukurkite konkrečius 5 dižiausių Vokietijos miestų tipus. Sukurkite tipą, kurio reikšmė būtų viena iš miestų.');
   {
     // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+    const city:germanCity= "Berlin";
+    const city2:germanCity="Munich";
+    console.log({
+      city:city,
+      city2:city2
+    });
   }
   console.groupEnd();
 
   console.group('2. Sukurkite konkrečias 5 šunų veisles. Sukurkite tipą, kurio reikšmė būtų viena iš veislių.');
   {
     // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+    const suo1:Sunys= "Snauceris";
+    const suo2:Sunys="Buldogas";
+    console.log({
+      Suo1:suo1,
+      suo2:suo2
+    });
+
   }
   console.groupEnd();
 
   console.group('3. Sukurkite konkrečias 5 mašinos dalių tipus. Sukurkite tipą, kurio reikšmė būtų viena iš dalių.');
   {
     // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+
+
+    const Audi:masina= "Variklis";
+    const Opel:masina="Babina";
+    console.log({
+      Masina1:Audi,
+      Masina2:Opel
+    });
+
   }
   console.groupEnd();
 

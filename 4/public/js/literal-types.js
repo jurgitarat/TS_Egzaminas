@@ -23,14 +23,32 @@ console.group('Literal types - užduotys');
 {
     console.group('1. Sukurkite konkrečius 5 dižiausių Vokietijos miestų tipus. Sukurkite tipą, kurio reikšmė būtų viena iš miestų.');
     {
+        const city = "Berlin";
+        const city2 = "Munich";
+        console.log({
+            city: city,
+            city2: city2
+        });
     }
     console.groupEnd();
     console.group('2. Sukurkite konkrečias 5 šunų veisles. Sukurkite tipą, kurio reikšmė būtų viena iš veislių.');
     {
+        const suo1 = "Snauceris";
+        const suo2 = "Buldogas";
+        console.log({
+            Suo1: suo1,
+            suo2: suo2
+        });
     }
     console.groupEnd();
     console.group('3. Sukurkite konkrečias 5 mašinos dalių tipus. Sukurkite tipą, kurio reikšmė būtų viena iš dalių.');
     {
+        const Audi = "Variklis";
+        const Opel = "Babina";
+        console.log({
+            Masina1: Audi,
+            Masina2: Opel
+        });
     }
     console.groupEnd();
 }
