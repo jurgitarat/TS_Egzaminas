@@ -57,10 +57,17 @@ const flags2: FlagOptions = [true, false, false, true, true];
 console.group('Union operators - užduotys');
 {
   // ↓↓↓↓ Tipus apraškite čia ↓↓↓↓
-
+  type House = { };
+  type Flat = {};
+  type Accommodation = House | Flat;
+  type Car ={
+    transmission:'Automatic' | 'Manual';
+  };
+  type HouseOrCar = Accommodation[] | Car[];
   // ↑↑↑↑ Tipus apraškite čia ↑↑↑↑
 
   console.group('1. Aprašykite objekto tipą Accommodation, kurio savybė "type" būtų, "House" arba "Flat"');
+  
   {
     // sprendimo pavyzdžius spausdinkite čia 
   }
@@ -69,12 +76,14 @@ console.group('Union operators - užduotys');
   console.group('2. Aprašykite objekto tipą Car, kurio savybė "transmission" būtų, "Automatic" arba "Manual"');
   {
     // sprendimo pavyzdžius spausdinkite čia 
+
   }
   console.groupEnd();
 
   console.group('3. Aprašykite tipą, kuris kintamajam leistų būti: arba Accommodation masyvu, arba Car masyvu');
   {
     // sprendimo pavyzdžius spausdinkite čia 
+
   }
   console.groupEnd();
 
