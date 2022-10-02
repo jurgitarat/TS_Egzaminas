@@ -132,10 +132,32 @@ console.group('9. Sukurkite funkciją, kuri priima skaičių masyvą ir grąžin
 console.groupEnd();
 console.group('10. Sukurkite funkciją, kuri priima skaičių masyvą ir grąžina naują masyvą sudarytą iš pradinio masyvo elementų pakeltų kvadratu');
 {
+    function masyvasEiluteje(masyvas) {
+        const padidintasMasyvas = [...masyvas];
+        for (let n = 0; n < padidintasMasyvas.length; n++)
+            padidintasMasyvas[n] = Math.pow(padidintasMasyvas[n], 2);
+        return padidintasMasyvas;
+    }
+    const Bandymas2 = [5, 6, 3, 7, 3, 1, 3, 5];
+    console.log({
+        PradinisMasyvas: Bandymas2,
+        KvadratinisMasyvas: masyvasEiluteje(Bandymas2)
+    });
 }
 console.groupEnd();
 console.group('11. Sukurkite funkciją, kuri priima skaičių masyvą ir grąžina naują masyvą sudarytą iš pradinio masyvo elementų ir jų indeksų sandaugos');
 {
+    function masyvasEiluteje(masyvas) {
+        const padidintasMasyvas = [...masyvas];
+        for (let n = 0; n < padidintasMasyvas.length; n++)
+            padidintasMasyvas[n] = padidintasMasyvas[n] * n;
+        return padidintasMasyvas;
+    }
+    const Bandymas2 = [5, 6, 3, 7, 3, 1, 3, 5];
+    console.log({
+        PradinisMasyvas: Bandymas2,
+        PadidintasMasyvas: masyvasEiluteje(Bandymas2)
+    });
 }
 console.groupEnd();
 console.group('12. Sukurkite funkciją, kuri priima skaičių masyvą ir grąžina naują masyvą sudarytą iš pradinio masyvo teigiamų elementų');
