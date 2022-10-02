@@ -224,22 +224,37 @@ console.log({
   PadidintasMasyvas: masyvasEiluteje(Bandymas2)})
 }
 
-
-
-
-
-}
 console.groupEnd();
 
 console.group('12. Sukurkite funkciją, kuri priima skaičių masyvą ir grąžina naują masyvą sudarytą iš pradinio masyvo teigiamų elementų');
 {
   // Užduoties sprendimas ir užduoties sprendimo atspausdinimas su duomenimis
+
+  function masyvasEiluteje(masyvas:number[]):number[]{
+    const padidintasMasyvas= masyvas.filter((number) => number > 0 );
+    return padidintasMasyvas
+}
+const Bandymas2 = [5,6,-3,7,3,-1,0,5];
+console.log({
+  PradinisMasyvas: Bandymas2,
+  TeigiamasMasyvas: masyvasEiluteje(Bandymas2)})
+
+  
 }
 console.groupEnd();
 
 console.group('13. Sukurkite funkciją, kuri priima skaičių masyvą ir grąžina naują masyvą sudarytą iš pradinio masyvo NE-teigiamų elementų');
 {
   // Užduoties sprendimas ir užduoties sprendimo atspausdinimas su duomenimis
+  function masyvasEiluteje(masyvas:number[]):number[]{
+    const padidintasMasyvas= masyvas.filter((number) => number <= 0 );
+    return padidintasMasyvas
+}
+const Bandymas2 = [5,6,-3,7,3,-1,0,5];
+console.log({
+  PradinisMasyvas: Bandymas2,
+  TeigiamasMasyvas: masyvasEiluteje(Bandymas2)})
+
 }
 console.groupEnd();
 
