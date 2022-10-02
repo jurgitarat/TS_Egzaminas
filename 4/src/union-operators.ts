@@ -57,9 +57,9 @@ const flags2: FlagOptions = [true, false, false, true, true];
 console.group('Union operators - užduotys');
 {
   // ↓↓↓↓ Tipus apraškite čia ↓↓↓↓
-  type House = { };
-  type Flat = {};
-  type Accommodation = House | Flat;
+  type Accommodation = { 
+    type : "House" | "Flat";
+  }
   type Car ={
     transmission:'Automatic' | 'Manual';
   };
@@ -70,19 +70,62 @@ console.group('Union operators - užduotys');
   
   {
     // sprendimo pavyzdžius spausdinkite čia 
+    const Studija:Accommodation = { 
+      type: "Flat"
+    };
+    const Kotedzas:Accommodation = { 
+      type: "House"
+    };
+    const Oranzerija:Accommodation = { 
+      type: "House"
+    };
+    console.log( {
+      Studija:Studija,
+      Kotedzas:Kotedzas,
+      Oranzerija:Oranzerija
+    }
+
+
+    )
   }
   console.groupEnd();
 
   console.group('2. Aprašykite objekto tipą Car, kurio savybė "transmission" būtų, "Automatic" arba "Manual"');
   {
     // sprendimo pavyzdžius spausdinkite čia 
+    const Opel:Car = { 
+      transmission: "Automatic"
+    };
+    const Audi:Car = { 
+      transmission: "Manual"
+    };
+    const Dodge:Car = { 
+      transmission: "Automatic"
+    };
+    console.log( {
+      Opel:Opel,
+      Audi:Audi,
+      Dodge:Dodge
+    }
 
+
+    )
   }
   console.groupEnd();
 
   console.group('3. Aprašykite tipą, kuris kintamajam leistų būti: arba Accommodation masyvu, arba Car masyvu');
   {
     // sprendimo pavyzdžius spausdinkite čia 
+    
+    const houses:HouseOrCar=[{type:"Flat"},{type:"House"},{type:"Flat"}];
+    const cars:HouseOrCar=[{transmission:"Automatic"},{transmission:"Automatic"},{transmission:"Manual"},{transmission:"Manual"}]
+
+    console.log({
+      houses:houses,
+      cars:cars
+
+
+    });
 
   }
   console.groupEnd();
