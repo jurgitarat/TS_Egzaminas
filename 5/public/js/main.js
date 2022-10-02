@@ -113,22 +113,52 @@ console.groupCollapsed('6. Suformuokite objektų masyvą su žmonių vardais ir 
 console.groupEnd();
 console.groupCollapsed('7. Suformuokite objektų masyvą iš žmonių kurie yra susituokę');
 {
+    const Filtras = (Zmogus) => (Zmogus.married == true);
+    const identities = people.filter(Filtras);
+    console.table(people);
+    console.table(identities);
 }
 console.groupEnd();
 console.groupCollapsed('8. Sukurkite objektą, kuriame būtų apskaičiuotas vairuojančių žmonių kiekis pagal lytį');
 {
+    const VyruFiltras = (Zmogus) => (Zmogus.sex == 'male' && Zmogus.hasCar == true);
+    const MoteruFiltras = (Zmogus) => (Zmogus.sex == 'female' && Zmogus.hasCar == true);
+    const averages = {
+        male: people.filter(VyruFiltras).length,
+        female: people.filter(MoteruFiltras).length
+    };
+    console.table(people);
+    console.table(averages);
 }
 console.groupEnd();
 console.groupCollapsed('9. Performuokite žmonių masyvą, jog kiekvieno žmogaus savybė "income", taptų "salary"');
 {
+    function personToIdentity({ name, surname, sex, age, income, married, hasCar }) {
+        let rObj = { name: name, surname: surname, sex: sex, age: age, salary: income, married: married, hasCar: hasCar };
+        return rObj;
+    }
+    const identities = people.map(personToIdentity);
+    console.table(people);
+    console.table(identities);
 }
 console.groupEnd();
 console.groupCollapsed('10. Suformuokite žmonių masyvą, kuriame nebūtų lyties, vardo ir pavardės');
 {
+    const personToIdentity = ({ age, income, married, hasCar }) => ({ age, income, married, hasCar });
+    const identities = people.map(personToIdentity);
+    console.table(people);
+    console.table(identities);
 }
 console.groupEnd();
 console.groupCollapsed('11. Suformuokite žmonių masyvą, kuriame "name" ir "surname" savybės, būtų pakeistos "fullname" savybe');
 {
+    function personToIdentity({ name, surname, sex, age, income, married, hasCar }) {
+        let rObj = { fullname: name + " " + surname, sex: sex, age: age, income, married: married, hasCar: hasCar };
+        return rObj;
+    }
+    const identities = people.map(personToIdentity);
+    console.table(people);
+    console.table(identities);
 }
 console.groupEnd();
 //# sourceMappingURL=main.js.map

@@ -243,7 +243,19 @@ console.groupEnd();
 console.groupCollapsed('7. Suformuokite objektų masyvą iš žmonių kurie yra susituokę');
 {
 
+  // Funkcijos:
+  const Filtras = (Zmogus: Person): Boolean => (Zmogus.married==true);
+
+
+  // Sprendimas:
+
+  const identities: Person[] = people.filter(Filtras);
+
+  // Spausdinimas:
+  console.table(people);
+  console.table(identities);
 }
+
 console.groupEnd();
 
 console.groupCollapsed('8. Sukurkite objektą, kuriame būtų apskaičiuotas vairuojančių žmonių kiekis pagal lytį');
@@ -254,24 +266,106 @@ console.groupCollapsed('8. Sukurkite objektą, kuriame būtų apskaičiuotas vai
   }
 */
 {
+  // Tipai:
+  type Average = {
+    male: number,
+    female: number,
+  };
 
+  // Funkcijos:
+  const VyruFiltras = (Zmogus: Person): Boolean => (Zmogus.sex=='male'&& Zmogus.hasCar==true);
+  const MoteruFiltras = (Zmogus: Person): Boolean => (Zmogus.sex=='female'&& Zmogus.hasCar==true);
+ 
+  
+
+  // Sprendimas:
+
+  const averages:Average = {
+    male:people.filter(VyruFiltras).length,
+    female:people.filter(MoteruFiltras).length
+  }
+
+  
+  // Spausdinimas:
+  console.table(people);
+  console.table(averages);
 }
 console.groupEnd();
 
 console.groupCollapsed('9. Performuokite žmonių masyvą, jog kiekvieno žmogaus savybė "income", taptų "salary"');
 {
+  // Tipai:
+  type Identity = {
+    readonly name: Person['name'],
+    readonly surname: Person['surname'],
+    readonly sex: Person['sex'],
+    age: Person['age'],
+    salary?: Person['income']|undefined,
+    married?: Person['married']|undefined,
+    hasCar?: Person['hasCar']|undefined,
+  };
+
+  // Funkcijos:
+  //const personToIdentity = ({ name, surname, sex, age, income , married,hasCar  }: Person): Identity => ({ name, surname, sex, age, income, married, hasCar });
+  function personToIdentity({name, surname, sex, age, income , married,hasCar}:Person):Identity { 
+    let rObj:Identity = { name: name, surname: surname, sex:sex,age:age,salary:income,married:married,hasCar:hasCar  };
+    return rObj;
+}
+  // Sprendimas:
+  const identities: Identity[] = people.map(personToIdentity);
+
+  // Spausdinimas:
+  console.table(people);
+  console.table(identities);
 
 }
 console.groupEnd();
 
 console.groupCollapsed('10. Suformuokite žmonių masyvą, kuriame nebūtų lyties, vardo ir pavardės');
 {
+  type Identity = {
+    age: number,
+    income?: number|undefined,
+    married?: boolean|undefined,
+    hasCar?: boolean|undefined,
+  };
+
+  // Funkcijos:
+  const personToIdentity = ({age, income , married,hasCar  }: Person): Identity => ({age, income, married, hasCar });
+  // Sprendimas:
+  const identities: Identity[] = people.map(personToIdentity);
+
+  // Spausdinimas:
+  console.table(people);
+  console.table(identities);
 
 }
 console.groupEnd();
 
 console.groupCollapsed('11. Suformuokite žmonių masyvą, kuriame "name" ir "surname" savybės, būtų pakeistos "fullname" savybe');
 {
+  // Tipai:
+  type Identity = {
+    readonly fullname: Person['surname'],
+    readonly sex: Person['sex'],
+    age: Person['age'],
+    income?: Person['income']|undefined,
+    married?: Person['married']|undefined,
+    hasCar?: Person['hasCar']|undefined,
+  };
+
+  // Funkcijos:
+  //const personToIdentity = ({ name, surname, sex, age, income , married,hasCar  }: Person): Identity => ({ name, surname, sex, age, income, married, hasCar });
+  function personToIdentity({name, surname, sex, age, income , married,hasCar}:Person):Identity { 
+    let rObj:Identity = { fullname: name + " " + surname, sex:sex,age:age,income,married:married,hasCar:hasCar  };
+    return rObj;
+}
+  // Sprendimas:
+  const identities: Identity[] = people.map(personToIdentity);
+
+  // Spausdinimas:
+  console.table(people);
+  console.table(identities);
 
 }
 console.groupEnd();
