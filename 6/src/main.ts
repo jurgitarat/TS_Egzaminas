@@ -112,6 +112,37 @@ console.groupEnd();
 console.group('6. Parašykite funkciją, kuri priimtų bet kokią reikšmę ir grąžintų objektą su savybėmis-funkcijomis "setValue" - reikšmei nustatyti ir "getValue" tai reikšmei nustatyti. Funkcijai perduota reikšmė neturi būti pasiekiama tiesiogiai.');
 {
   // Sprendimas ir rezultatų spausdinimas
+  type objektas<Type>={
+    setValue:(value:Type)=>void,
+    getValue:()=>Type
+  }
+  function funkcija<Type>(reiksme:Type):objektas<Type>{
+    return {
+      setValue:(naujaReiksme)=>reiksme=naujaReiksme,
+      getValue:()=>reiksme
+    }
+
+  }
+
+
+
+  const object = funkcija("labas");
+  console.log({
+    objektasGet : object.getValue()
+  });
+  object.setValue("nea");
+  console.log({
+    objektasGet : object.getValue()
+  });
+
+  const object2 = funkcija(false);
+  console.log({
+    objektas2Get : object2.getValue()
+  });
+  object2.setValue(true);
+  console.log({
+    objektas2Get : object2.getValue()
+  });
 }
 console.groupEnd();
 
@@ -147,4 +178,27 @@ console.group(`
     { name: 'Šidelė', surname: 'Gyslovienė', avgMonthlyPay: 1500 },
     { name: 'Užuodauskas', surname: 'Perrašimauskas', university: 'VGTU', course: 1 },
   ];
+  function isStudent<Person>(testPerson :Person):boolean
+  {
+    return (testPerson as Student).university !== undefined;
+  }
+
+  function isWorker<Person>(testPerson :Person):boolean
+  {
+    return (testPerson as Worker).avgMonthlyPay !== undefined;
+  }
+
+  const StudentuFiltras = (Zmogus: Person): Boolean => (isStudent(Zmogus));
+  const DarbininkuFiltras = (Zmogus: Person): Boolean => (isWorker(Zmogus));
+  const KituFiltras = (Zmogus: Person): Boolean => (!isWorker(Zmogus)&&!isStudent(Zmogus));
+
+  console.log("Zmones")
+  console.table(people);
+  console.log("Studentai")
+  console.table(people.filter(StudentuFiltras));
+  console.log("Darbininkai")
+  console.table(people.filter(DarbininkuFiltras));
+  console.log("Kiti")
+  console.table(people.filter(KituFiltras));
+
 }

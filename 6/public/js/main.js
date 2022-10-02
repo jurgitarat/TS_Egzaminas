@@ -59,6 +59,28 @@ console.group('5. Parašykite funkciją, kuri sujungia tokių pat tipų masyvus 
 console.groupEnd();
 console.group('6. Parašykite funkciją, kuri priimtų bet kokią reikšmę ir grąžintų objektą su savybėmis-funkcijomis "setValue" - reikšmei nustatyti ir "getValue" tai reikšmei nustatyti. Funkcijai perduota reikšmė neturi būti pasiekiama tiesiogiai.');
 {
+    function funkcija(reiksme) {
+        return {
+            setValue: (naujaReiksme) => reiksme = naujaReiksme,
+            getValue: () => reiksme
+        };
+    }
+    const object = funkcija("labas");
+    console.log({
+        objektasGet: object.getValue()
+    });
+    object.setValue("nea");
+    console.log({
+        objektasGet: object.getValue()
+    });
+    const object2 = funkcija(false);
+    console.log({
+        objektas2Get: object2.getValue()
+    });
+    object2.setValue(true);
+    console.log({
+        objektas2Get: object2.getValue()
+    });
 }
 console.groupEnd();
 console.group(`
@@ -76,5 +98,22 @@ console.group(`
         { name: 'Šidelė', surname: 'Gyslovienė', avgMonthlyPay: 1500 },
         { name: 'Užuodauskas', surname: 'Perrašimauskas', university: 'VGTU', course: 1 },
     ];
+    function isStudent(testPerson) {
+        return testPerson.university !== undefined;
+    }
+    function isWorker(testPerson) {
+        return testPerson.avgMonthlyPay !== undefined;
+    }
+    const StudentuFiltras = (Zmogus) => (isStudent(Zmogus));
+    const DarbininkuFiltras = (Zmogus) => (isWorker(Zmogus));
+    const KituFiltras = (Zmogus) => (!isWorker(Zmogus) && !isStudent(Zmogus));
+    console.log("Zmones");
+    console.table(people);
+    console.log("Studentai");
+    console.table(people.filter(StudentuFiltras));
+    console.log("Darbininkai");
+    console.table(people.filter(DarbininkuFiltras));
+    console.log("Kiti");
+    console.table(people.filter(KituFiltras));
 }
 //# sourceMappingURL=main.js.map
