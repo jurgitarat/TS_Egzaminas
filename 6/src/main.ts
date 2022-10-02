@@ -8,21 +8,57 @@ type PrimitiveType = string | number | boolean;
   https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards
 */
 
+
+const masyvas:string[]=["trys","japonai","valgo","kiauliena"]
 console.group('1. Parašykite funkciją, kuri grąžina pirmą masyvo elementą.');
 {
   // Sprendimas ir rezultatų spausdinimas
+  
+    // Funkcijos:
+    function grazintiPirma<Type>(masyvas:Type[]):Type { 
+      return masyvas[0];
+  }
+  
+    // Spausdinimas:
+    console.table(masyvas);
+    console.log({pimasElementas:grazintiPirma(masyvas)});
+
+
 }
 console.groupEnd();
 
 console.group('2. Parašykite funkciją, kuri grąžina paskutinį masyvo elementą.');
 {
   // Sprendimas ir rezultatų spausdinimas
+
+    // Funkcijos:
+    function grazintiPaskutini<Type>(masyvas:Type[]):Type { 
+      return masyvas[masyvas.length-1];
+  }
+    // Sprendimas:
+    const masyvas:string[]=["trys","japonai","valgo","kiauliena"]
+  
+    // Spausdinimas:
+    console.table(masyvas);
+    console.log({paskutinisElementas:grazintiPaskutini(masyvas)});
+
+
 }
 console.groupEnd();
 
 console.group('3. Parašykite funkciją, kuri grąžina vienarūšių primityvių reikšmių masyvo kopiją');
 {
   // Sprendimas ir rezultatų spausdinimas
+    // Funkcijos:
+    function masyvoKopija<Type extends PrimitiveType>(masyvas:Type[]):Type[] { 
+      return [...masyvas];
+  }
+    // Sprendimas:
+    const masyvas:string[]=["trys","japonai","valgo","kiauliena"]
+  
+    // Spausdinimas:
+    console.table(masyvas);
+    console.table(masyvoKopija(masyvas));
 }
 console.groupEnd();
 
@@ -32,12 +68,44 @@ console.group('4. Parašykite funkciją,  kuri pirmu parametru priima string | n
   // (77, 4) -> [77, 77, 77, 77]
   // (true, 1) -> [true]
   // Sprendimas ir rezultatų spausdinimas
+    // Funkcijos:
+    function masyvoSukurimas<Type extends PrimitiveType>(primityvus:Type,skaicius:number):Type[] { 
+      let masyvas:Type[]= new Array();
+      for (let i=0; i<skaicius; i++){
+        masyvas.push(primityvus);
+      }
+      return masyvas;
+  }
+    // Sprendimas:
+  
+    // Spausdinimas:
+   // console.table(masyvas);
+//console.table(masyvoKopija(masyvas));
+ console.log ({
+    "('a', 2)":masyvoSukurimas('a', 2),
+    "(77, 4)":masyvoSukurimas(77, 4),
+    "(true, 1)":masyvoSukurimas(true, 1)
+ })
+
 }
 console.groupEnd();
 
 console.group('5. Parašykite funkciją, kuri sujungia tokių pat tipų masyvus į vieną masyvą');
 {
   // Sprendimas ir rezultatų spausdinimas
+  function masyvoSujungimas<Type>(pirmas:Type[],antras:Type[]):Type[] { 
+    return  pirmas.concat(antras);
+}
+  // Sprendimas:
+
+  // Spausdinimas:
+ // console.table(masyvas);
+//console.table(masyvoKopija(masyvas));
+console.log ({
+  "(['ab','aaa','bbbb'], ['ccc','ddd'])":masyvoSujungimas(['ab','aaa','bbbb'], ['ccc','ddd']),
+  "([true,false,true], [true])":masyvoSujungimas([true,false,true], [true]),
+  "([2,0], ['1'])":masyvoSujungimas([2,0], [1])
+})
 }
 console.groupEnd();
 
