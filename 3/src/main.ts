@@ -253,7 +253,7 @@ console.group('13. Sukurkite funkciją, kuri priima skaičių masyvą ir grąži
 const Bandymas2 = [5,6,-3,7,3,-1,0,5];
 console.log({
   PradinisMasyvas: Bandymas2,
-  TeigiamasMasyvas: masyvasEiluteje(Bandymas2)})
+  NeTeigiamasMasyvas: masyvasEiluteje(Bandymas2)})
 
 }
 console.groupEnd();
@@ -261,17 +261,51 @@ console.groupEnd();
 console.group('14. Sukurkite funkciją, kuri priima skaičių masyvą ir grąžina naują masyvą sudarytą iš pradinio masyvo lyginių elementų');
 {
   // Užduoties sprendimas ir užduoties sprendimo atspausdinimas su duomenimis
+  function masyvasEiluteje(masyvas:number[]):number[]{
+    const padidintasMasyvas= masyvas.filter((number) => number % 2 == 0 );
+    return padidintasMasyvas
+}
+const Bandymas2 = [5,6,-3,7,3,-1,0,5,-4];
+console.log({
+  PradinisMasyvas: Bandymas2,
+  LyginisMasyvas: masyvasEiluteje(Bandymas2)})
+
+
+
+
 }
 console.groupEnd();
 
 console.group('15. Sukurkite funkciją, kuri priima skaičių masyvą ir grąžina naują masyvą sudarytą iš pradinio masyvo nelyginių elementų');
 {
   // Užduoties sprendimas ir užduoties sprendimo atspausdinimas su duomenimis
+  function masyvasEiluteje(masyvas:number[]):number[]{
+    const padidintasMasyvas= masyvas.filter((number) => number % 2 != 0 );
+    return padidintasMasyvas
+}
+const Bandymas2 = [5,6,-3,7,3,-1,0,5,-4];
+console.log({
+  PradinisMasyvas: Bandymas2,
+  NelyginisMasyvas: masyvasEiluteje(Bandymas2)})
+
+
 }
 console.groupEnd();
 
 console.group('16. Sukurkite funkciją, kuri priima skaičių masyvą ir grąžina naują masyvą sudarytą iš pradinio masyvo, paverstų teigiamais, elementų');
 {
   // Užduoties sprendimas ir užduoties sprendimo atspausdinimas su duomenimis
+  function masyvasEiluteje(masyvas:number[]):number[]{
+    const padidintasMasyvas:number[]=[...masyvas];
+    for (let n = 0; n<padidintasMasyvas.length;n++)
+    padidintasMasyvas[n]=Math.abs(padidintasMasyvas[n]);
+    
+    return padidintasMasyvas
 }
+const Bandymas2 = [5,6,-3,7,3,-1,0,5,-4];
+console.log({
+  PradinisMasyvas: Bandymas2,
+  TeigiamasMasyvas: masyvasEiluteje(Bandymas2)})
+}
+
 console.groupEnd();
