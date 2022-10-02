@@ -165,26 +165,79 @@ console.groupEnd();
 
 console.groupCollapsed('3. Sukurtite masyvą su vardais, pavardėmis ir lytimi, pagal pradinį žmonių masyvą');
 {
-
+  {
+    // Tipai:
+    type Identity = {
+      name: Person['name'],
+      surname: Person['surname'],
+      sex:Person['sex']
+    };
+  
+    // Funkcijos:
+    const personToIdentity = ({ name, surname, sex }: Person): Identity => ({ name, surname,sex });
+  
+    // Sprendimas:
+    const sexIdentities: Identity[] = people.map(personToIdentity);
+  
+    // Spausdinimas:
+    console.table(people);
+    console.table(sexIdentities);
+  }
 }
 console.groupEnd();
 
 console.groupCollapsed('4. Suformuokite visų vyrų masyvą');
 {
+    // Funkcijos:
+    const dieduFiltras = (Zmogus: Person): Boolean => (Zmogus.sex=='male');
+    // Sprendimas:
+    const Vyrai: Person[] = people.filter(dieduFiltras);
+  
+    // Spausdinimas:
+    console.table(people);
+    console.table(Vyrai);
 
 }
 console.groupEnd();
 
 console.groupCollapsed('5. Suformuokite visų moterų masyvą');
 {
+  {
+    // Funkcijos:
+    const bobuFiltras = (Zmogus: Person): Boolean => (Zmogus.sex!='male');
+    // Sprendimas:
+    const Bobos: Person[] = people.filter(bobuFiltras);
+  
+    // Spausdinimas:
+    console.table(people);
+    console.table(Bobos);
 
+}
 }
 console.groupEnd();
 
 console.groupCollapsed('6. Suformuokite objektų masyvą su žmonių vardais ir pavardėm, kurie turi mašinas');
 {
+  // Tipai:
+  type Identity = {
+    name: Person['name'],
+    surname: Person['surname'],
+  };
 
+  // Funkcijos:
+  const Filtras = (Zmogus: Person): Boolean => (Zmogus.hasCar==true);
+  const personToIdentity = ({ name, surname }: Person): Identity => ({ name, surname });
+
+
+  // Sprendimas:
+
+  const identities: Identity[] = people.filter(Filtras).map(personToIdentity);
+
+  // Spausdinimas:
+  console.table(people);
+  console.table(identities);
 }
+
 console.groupEnd();
 
 console.groupCollapsed('7. Suformuokite objektų masyvą iš žmonių kurie yra susituokę');
