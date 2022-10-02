@@ -37,24 +37,67 @@ enum WeekDayNamesLT {
 console.group('Literal types - užduotys');
 {
   // ↓↓↓↓ Tipus ir užduotims bendrus kintamuosius aprašykite čia ↓↓↓↓
+enum Miestai  {
+  vilnius = 'vilnius',
+  Kaunas = "Kaunas",
+  Klaipeda = "klaipeda",
+  Siauliai = "siauliai",
+  Panevezys = "panevezys"
+}
 
+enum Salys  {
+  Kinija,
+  Indija,
+  JAV,
+  Indonezija,
+  Pakistanas
+}
+enum BVP  {
+  JAV = 1,
+  Kinija,
+  Japonija,
+  Vokietija,
+  JungtineKaralyste
+}
   // ↑↑↑↑ Tipus ir užduotims bendrus kintamuosius aprašykite čia ↑↑↑↑
 
   console.group("1. Sukurkite 5 didžiausių Lietuvos miestų išvardinimą.");
   {
     // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+    const miestas:Miestai = Miestai.vilnius;
+    const kitasMiestas:Miestai = Miestai.Panevezys;
+    console.log({
+      miestas:miestas,
+      kitasMiestas:kitasMiestas
+    })
+
+
+
   }
   console.groupEnd();
 
   console.group('2. Sukurkite 5 šalių su didžiausiu gyventojų skaičiumi skaitinį išvardinimą.');
   {
     // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+    const salis:Salys = Salys.Indonezija;
+    const kitaSalis:Salys = Salys.Pakistanas;
+        console.log({
+          salis:salis,
+          kitaSalis:kitaSalis
+    })
   }
   console.groupEnd();
 
   console.group('3. Sukurkite 5 šalių su didžiausiu BVP skaitinį išvardinimą pradedant "1".');
   {
     // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+        // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+        const salis:BVP = BVP.Kinija;
+        const kitaSalis:BVP = BVP.JAV;            
+        console.log({
+              salis:salis,
+              kitaSalis:kitaSalis
+        })
   }
   console.groupEnd();
 
