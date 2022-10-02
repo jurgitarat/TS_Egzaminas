@@ -21,24 +21,40 @@ formAddUser.onsubmit = (e) => {
 console.group('Assertions - užduotys');
 {
   // ↓↓↓↓ Tipus ir užduotims bendrus kintamuosius apraškite čia ↓↓↓↓
-
+    const button:HTMLElement = document.createElement("button");
+    const divElement:HTMLElement = document.createElement("div");
+    type EventHandler = (e: MouseEvent) => void;
   // ↑↑↑↑ Tipus ir užduotims bendrus kintamuosius apraškite čia ↑↑↑↑
 
   console.group('1. Sukurkite HTML mygtuką ir uždėkite jam įvykio klausiklį, jog paspaudus, būt spausdinamas tekstas "paspausta!"');
   {
     // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+    button.textContent="Paspauskite mygtuka";
+    const printTextOnClick: EventHandler = () => console.log('papausta!');
+    button.addEventListener('click',printTextOnClick);
+    document.body.appendChild(button);
+    
   }
   console.groupEnd();
 
   console.group('2. Sukurkite <div> elementą ir papildikyte jo turinį mažu kvadaratėliu kiekvieną kart, kuomet paspaudžiamas [1.] mygtukas');
   {
     // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+    
+    document.body.appendChild(divElement);
+    const addSquareonClick: EventHandler = () => divElement.innerText = divElement.innerText+"■";
+    button.addEventListener('click',addSquareonClick);
   }
   console.groupEnd();
 
   console.group('3. Sukurkite <p> elementą kuriame spausdinsite skaičių - kiek kvadratėlių yra [2.] konteineryje');
   {
     // sprendimą|sprendimo pavyzdžius spausdinkite čia 
+    const pElement:HTMLElement=document.createElement("p");
+    pElement.innerText="0";
+    document.body.appendChild(pElement);
+    const countSquares: EventHandler = () => pElement.innerText = (parseInt(pElement.innerText)+1)+"";
+    button.addEventListener('click',countSquares);
   }
   console.groupEnd();
 
