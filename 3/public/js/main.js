@@ -44,6 +44,17 @@ console.group('3. Parašykite funkciją, kuri atspausdina kiekvieno masyvo eleme
 console.groupEnd();
 console.group('4. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elemento indekso ir reikšmių poras eilutėmis, tokiu formatu:  ');
 {
+    function masyvoElementai(masyvas) {
+        masyvas.forEach(function callback(value, index) {
+            console.log(`[${index}] => ${value}`);
+        });
+    }
+    const Bandymas1 = ["Jonas", "Petras", "Antanas"];
+    const Bandymas2 = [5, 6, 3, 7, 3, 1, 3, 5];
+    console.log(Bandymas1);
+    masyvoElementai(Bandymas1);
+    console.log(Bandymas2);
+    masyvoElementai(Bandymas2);
 }
 console.groupEnd();
 console.group('5. Parašykite funkciją, kuri atspausdina masyvo elementus atbuline tvarka eilutėmis, iš galo.');

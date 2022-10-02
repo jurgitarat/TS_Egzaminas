@@ -58,6 +58,22 @@ console.group('4. Parašykite funkciją, kuri atspausdina kiekvieno masyvo eleme
 // [2] => reikšmė
 {
   // Užduoties sprendimas ir užduoties sprendimo atspausdinimas su duomenimis
+  function masyvoElementai(masyvas:any[]):void{
+    masyvas.forEach(function callback(value, index) {
+      console.log(`[${index}] => ${value}`);
+    }
+      );
+  }
+  const Bandymas1 = ["Jonas", "Petras", "Antanas"];
+  const Bandymas2 = [5,6,3,7,3,1,3,5];
+  console.log(Bandymas1);
+  masyvoElementai(Bandymas1);
+  console.log(Bandymas2);
+  masyvoElementai(Bandymas2);
+
+
+
+
 }
 console.groupEnd();
 
