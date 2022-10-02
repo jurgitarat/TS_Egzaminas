@@ -15,9 +15,8 @@ console.groupEnd();
 console.group('2. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elemento indeksus eilutėmis');
 {
     function masyvoIndeksai(masyvas) {
-        masyvas.forEach(function callback(value, index) {
-            console.log(index);
-        });
+        for (let n = 0; n < masyvas.length; n++)
+            console.log(n);
     }
     const Bandymas1 = ["Jonas", "Petras", "Antanas"];
     const Bandymas2 = [5, 6, 3, 7, 3, 1, 3, 5];
@@ -59,6 +58,16 @@ console.group('4. Parašykite funkciją, kuri atspausdina kiekvieno masyvo eleme
 console.groupEnd();
 console.group('5. Parašykite funkciją, kuri atspausdina masyvo elementus atbuline tvarka eilutėmis, iš galo.');
 {
+    function masyvoElementaiAtbulai(masyvas) {
+        for (let n = masyvas.length - 1; n >= 0; n--)
+            console.log(masyvas[n]);
+    }
+    const Bandymas1 = ["Jonas", "Petras", "Antanas"];
+    const Bandymas2 = [5, 6, 3, 7, 3, 1, 3, 5];
+    console.log(Bandymas1);
+    masyvoElementaiAtbulai(Bandymas1);
+    console.log(Bandymas2);
+    masyvoElementaiAtbulai(Bandymas2);
 }
 console.groupEnd();
 console.group('6. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elemento indeksus vienoje eilutėje: 0 1 2 3 ...');
