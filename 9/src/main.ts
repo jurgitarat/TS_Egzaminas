@@ -1,8 +1,14 @@
+type VehicleParams={
+    brand:string,
+    model:string,
+    year:number
+}
+
 class Vehicle {
     protected brand:string;
     protected model:string;
     protected year:number;
-    constructor(brand:string, model:string, year:number){
+    constructor({brand, model, year}:VehicleParams){
         this.brand=brand;
         this.model=model;
         this.year=year;
@@ -14,8 +20,8 @@ class Vehicle {
 
 class  WaterVehicle extends Vehicle{
     private maxDepth:number;
-    constructor(brand:string, model:string, year:number, maxDepth:number){
-        super(brand,model,year);
+    constructor(params:VehicleParams, maxDepth:number){
+        super(params);
         this.maxDepth=maxDepth;
     }
     public override getString(): string {
@@ -25,8 +31,8 @@ class  WaterVehicle extends Vehicle{
 
 class  LandVehicle extends Vehicle{
     private tires:string[];
-    constructor(brand:string, model:string, year:number, tires:string[]){
-        super(brand,model,year);
+    constructor(params:VehicleParams,  tires:string[]){
+        super(params);
         this.tires=tires;
     }
     public override getString(): string {
@@ -36,8 +42,8 @@ class  LandVehicle extends Vehicle{
 
 class  AirVehicle extends Vehicle{
     private maxAltitude:number;
-    constructor(brand:string, model:string, year:number, maxAltitude:number){
-        super(brand,model,year);
+    constructor(params:VehicleParams,  maxAltitude:number){
+        super(params);
         this.maxAltitude=maxAltitude;
     }    
     public override getString(): string {

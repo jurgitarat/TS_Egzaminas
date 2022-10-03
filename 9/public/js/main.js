@@ -1,6 +1,6 @@
 "use strict";
 class Vehicle {
-    constructor(brand, model, year) {
+    constructor({ brand, model, year }) {
         this.brand = brand;
         this.model = model;
         this.year = year;
@@ -10,8 +10,8 @@ class Vehicle {
     }
 }
 class WaterVehicle extends Vehicle {
-    constructor(brand, model, year, maxDepth) {
-        super(brand, model, year);
+    constructor(params, maxDepth) {
+        super(params);
         this.maxDepth = maxDepth;
     }
     getString() {
@@ -19,8 +19,8 @@ class WaterVehicle extends Vehicle {
     }
 }
 class LandVehicle extends Vehicle {
-    constructor(brand, model, year, tires) {
-        super(brand, model, year);
+    constructor(params, tires) {
+        super(params);
         this.tires = tires;
     }
     getString() {
@@ -28,8 +28,8 @@ class LandVehicle extends Vehicle {
     }
 }
 class AirVehicle extends Vehicle {
-    constructor(brand, model, year, maxAltitude) {
-        super(brand, model, year);
+    constructor(params, maxAltitude) {
+        super(params);
         this.maxAltitude = maxAltitude;
     }
     getString() {
