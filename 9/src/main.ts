@@ -1,55 +1,57 @@
-type VehicleParams={
-    brand:string,
-    model:string,
-    year:number
-}
+import LandVehicle from './LandVehicle.js';
+import AirVehicle from './AirVehicle.js';
+import WaterVehicle from './WaterVehicle.js';
 
-class Vehicle {
-    protected brand:string;
-    protected model:string;
-    protected year:number;
-    constructor({brand, model, year}:VehicleParams){
-        this.brand=brand;
-        this.model=model;
-        this.year=year;
-    }
-    protected getString():string {
-        return `${this.brand} ${this.model} ${this.year} `
-    }
-}
 
-class  WaterVehicle extends Vehicle{
-    private maxDepth:number;
-    constructor(params:VehicleParams, maxDepth:number){
-        super(params);
-        this.maxDepth=maxDepth;
-    }
-    public override getString(): string {
-        return super.getString() + ` ${this.maxDepth}`;
-    }
-}
+const vehicles: (LandVehicle | AirVehicle | WaterVehicle)[] = [
+    new LandVehicle({
+        brand: 'Toyota',
+        model: 'Corola',
+        year: 2005,
+      },
+      ['Delux 200 m&s', 'Delux 200 m&s', 'Fairtex 200 m&s', 'Fairtex 200 m&s']
+     ),
+    new LandVehicle(
+        {
+            brand: 'Nisan',
+            model: 'Qashqai',
+            year: 2007,
+          },
+      ['Delux 200 m&s', 'Delux 200 m&s', 'Fairtex 200 m&s', 'Fairtex 200 m&s']
+    ),
+    new AirVehicle(
+     {
+      brand: 'Jeti',
+      model: 'Nitro',
+      year: 2015,
+    },
+    7000
+    ),
+    new AirVehicle( {
+      brand: 'Falcon',
+      model: 'Bamasi',
+      year: 2012,
+    },
+    5000
+    ),
+    new WaterVehicle({
+      brand: 'Sailor',
+      model: 'Ocean 3000',
+      year: 2011,
+    },30
+    ),
+    new WaterVehicle( {
+      brand: 'LandScraper',
+      model: 'Fagotti',
+      year: 202,
+    },
+    14),
+  ];
+  
+  vehicles.forEach(v => console.log(v.toString()));
 
-class  LandVehicle extends Vehicle{
-    private tires:string[];
-    constructor(params:VehicleParams,  tires:string[]){
-        super(params);
-        this.tires=tires;
-    }
-    public override getString(): string {
-        return super.getString() + ` ${this.tires}`;
-    }
-}
 
-class  AirVehicle extends Vehicle{
-    private maxAltitude:number;
-    constructor(params:VehicleParams,  maxAltitude:number){
-        super(params);
-        this.maxAltitude=maxAltitude;
-    }    
-    public override getString(): string {
-        return super.getString() + ` ${this.maxAltitude}`;
-    }
-}
+
 
 
 
