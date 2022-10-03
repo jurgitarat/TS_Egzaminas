@@ -54,7 +54,7 @@ class Job{
 
 class BuisnessLicencePerson extends Employee{
     private jobs: Job[];
-    constructor (jobs:Job[], params:personParams) {
+    constructor (params:personParams, jobs:Job[]) {
         super(params);
         this.jobs=jobs;
     }
@@ -66,14 +66,14 @@ class BuisnessLicencePerson extends Employee{
         return pay;
     }
     public override toString(): string{
-        return `${super.getPersonInfo} bus sumokėta ${this.calcPay()}`;
+        return `${super.getPersonInfo()} bus sumokėta ${this.calcPay()}`;
     }
 }
 
 class SelfEmployedPerson extends Employee{
     private hourPay: number;
     private hoursWorked: number;
-    constructor (hourPay:number, hoursWorked:number,params:personParams){
+    constructor (params:personParams,hourPay:number, hoursWorked:number){
         super(params);
         this.hourPay=hourPay;
         this.hoursWorked=hoursWorked;
@@ -82,14 +82,14 @@ class SelfEmployedPerson extends Employee{
         return this.hourPay* this.hoursWorked;
     }
     public override toString(): string{
-        return `${super.getPersonInfo} bus sumokėta ${this.calcPay()}`;
+        return `${super.getPersonInfo()} bus sumokėta ${this.calcPay()}`;
     }
 }
 
 class WorkPerson extends Employee {
     private hourPay: number;
     private fullTimeEquivalent: number;
-    constructor (hourPay:number, fullTimeEquivalent:number,params:personParams){
+    constructor (params:personParams, hourPay:number, fullTimeEquivalent:number){
         super(params);
         this.hourPay=hourPay;
         this.fullTimeEquivalent=fullTimeEquivalent;
@@ -98,6 +98,77 @@ class WorkPerson extends Employee {
         return this.hourPay * this.fullTimeEquivalent;
     }
     public override toString(): string{
-        return `${super.getPersonInfo} bus sumokėta ${this.calcPay()}`;
+        return `${super.getPersonInfo()} bus sumokėta ${this.calcPay()}`;
     }
 }
+
+
+const backendDeveloper = new WorkPerson({
+    id: '25169845878',
+    name: 'Apsas',
+    surname: 'Revestenis'},
+    25,
+    1
+  );
+  const frontendDeveloper = new WorkPerson({
+    id: '25167745878',
+    name: 'Eventas',
+    surname: 'Klikauskas'},
+    25,
+    0.5
+  );
+  
+  const selfEmployed1 = new SelfEmployedPerson({
+    id: '25169845878',
+    name: 'Beribė',
+    surname: 'Jūračka'},
+    25,
+    10
+  );
+  const selfEmployed2 = new SelfEmployedPerson({
+    id: '25169145878',
+    name: 'Fanalijus',
+    surname: 'Analijus'},
+    10,0
+  );
+  
+  const designer = new BuisnessLicencePerson({
+    id: '15169845878',
+    name: 'Plunksytė',
+    surname: 'Krupštytė',
+  },[]);
+  
+  const jobs = [
+    new Job('Facebook adds', 200),
+    new Job('Google adds', 700),
+    new Job('Twitter adds', 400),
+  ];
+  
+  jobs[0].completeJob();
+  jobs[2].completeJob();
+  
+  const marketingSpecialist = new BuisnessLicencePerson({
+    id: '15169845878',
+    name: 'Protenis',
+    surname: 'Knistauskenis',
+    },jobs);
+  
+  const employees: Employee[] = [
+    backendDeveloper,
+    frontendDeveloper,
+    selfEmployed1,
+    selfEmployed2,
+    designer,
+    marketingSpecialist,
+  ];
+  
+  console.group('1. Atspausdinkite visus darbuotojus');
+  employees.forEach((emp) => console.log(emp.toString()));
+  console.groupEnd();
+  
+  console.group('2. Atspausdinkite visų darbuotojų atlyginimus');
+  employees.forEach((emp) => {
+    console.log(emp.getPersonInfo());
+    console.log(emp.calcPay());
+  });
+  console.groupEnd();
